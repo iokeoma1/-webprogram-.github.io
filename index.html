@@ -1,0 +1,162 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Page Layout</title>
+
+    <!-- Including jQuery and Foundation CSS and JS libraries -->
+    <script src="./jquery/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="./foundation/css/foundation.css">
+    
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: white;
+            color: black;
+        }
+
+        .navigation,
+        .header,
+        .footer {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .navigation {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .navigation button {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .header img {
+            width: 100%;
+            height:200px;
+        }
+
+        .main-content {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 25%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: lightgray;
+            border-right: 1px solid black;
+        }
+
+        .body {
+            width: 75%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .cell {
+            border: 1px solid black;
+        }
+
+        #entire {
+            margin: 50px;
+        }
+
+        .nav {
+            margin: 10px;
+        }
+
+        #header {
+            background: lightblue;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            .sidebar,
+            .body {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("#alert").on("click", function () {
+                alert("Hello World!");
+            });
+
+            $("#change").on("click", function () {
+                $("#body-text").html("New Text");
+            });
+        });
+
+        function updateBody() {
+            document.getElementById("body-text").innerText = "The body text has been updated!";
+        }
+
+        function showAlert() {
+            alert("Alert button clicked!");
+        }
+    </script>
+</head>
+
+<body>
+    <div class="navigation">
+        <button onclick="updateBody()">Update Body</button>
+        <button onclick="showAlert()">Alert</button>
+    </div>
+
+    <div class="header">
+        <img src="https://images.pexels.com/photos/6399302/pexels-photo-6399302.jpeg" alt="Header Image">
+    </div>
+
+    <div id="entire">
+        <div class="grid-x">
+            <div class="sidebar cell small-12 medium-4 large-4">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum
+                    vestibulum. Cras venenatis euismod malesuada. Nunc consectetur purus ut enim pharetra convallis.</p>
+                <p>Curabitur sit amet erat vel dui fermentum ultricies. Aliquam erat volutpat. Sed vitae scelerisque
+                    metus, nec tempus nulla. Curabitur suscipit elit nec aliquam feugiat.</p>
+            </div>
+
+            <div class="body cell small-12 medium-8 large-8">
+                <p id="body-text">Body</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&#169; 2024 Ikenna Okeoma, All rights Reserved. Designed by Ikenna Okeoma</p>
+    </div>
+</body>
+
+</html>
